@@ -5,6 +5,10 @@
   "repository": "git@github.com:arcatdmz/money-utils-js.git",
   "author": "Jun Kato <i@junkato.jp>",
   "license": "MIT",
+  "scripts": {
+    "start": "node dist/index.js",
+    "build": "tsc"
+  },
   "dependencies": {
     "pdf-parse": "^1.1.1"
   },
