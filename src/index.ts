@@ -41,11 +41,16 @@ function parsePDF(
   });
 }
 
+let localCurrencyPattern = /^([0-9]{2}\/[0-9]{2}\/[0-9]{2})\s+(.+)\s+([A-Z]+)\s+([0-9-.,]+)(\s+([0-9]{2}\/[0-9]{2}\/[0-9]{2}))?$/;
+// need to handle foreign currency pattern:
+//  '18/10/23 7‑ELEVEN                    JPY       636.00                        11.00 18/10/27',
+//  '                                     KRW     6,400.00                0.09',
+
 parsePDF(argv[2], (err, pages) => {
   if (err) return console.error(err);
   pages.forEach((page, i) => {
     let lines = page.split(/[\015\n]+/g);
-    lines = lines.filter(line => /^[0-9]{2}\/[0-9]{2}\/[0-9]{2}/g.test(line));
+    lines = lines.filter(line => localCurrencyPattern.test(line));
     inspect(lines, `extracted text page: ${i}`);
   });
 });
