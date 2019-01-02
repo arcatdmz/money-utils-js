@@ -7,12 +7,39 @@
   resolved "http://arcatdmz2.synology.me:4873/@types%2fnode/-/node-10.12.18.tgz#1d3ca764718915584fcd9f6344621b7672665c67"
   integrity sha512-fh+pAqt4xRzPfqA6eh3Z2y6fyZavRIumvjhaCL753+TVkGKGhpPeyrJG2JftD0T9q4GF00KjefsQ+PQNDdWQaQ==
 
+async@~0.1.22:
+  version "0.1.22"
+  resolved "http://arcatdmz2.synology.me:4873/async/-/async-0.1.22.tgz#0fc1aaa088a0e3ef0ebe2d8831bab0dcf8845061"
+  integrity sha1-D8GqoIig4+8Ovi2IMbqw3PiEUGE=
+
 debug@^3.1.0:
   version "3.2.6"
   resolved "http://arcatdmz2.synology.me:4873/debug/-/debug-3.2.6.tgz#e83d17de16d8a7efb7717edbe5fb10135eee629b"
   integrity sha512-mel+jf7nrtEl5Pn1Qx46zARXKDpBbvzezse7p7LqINmdoIk8PYP5SySaxEmYv6TZ0JyEKA1hsCId6DIhgITtWQ==
   dependencies:
     ms "^2.1.1"
+
+eyes@^0.1.8:
+  version "0.1.8"
+  resolved "http://arcatdmz2.synology.me:4873/eyes/-/eyes-0.1.8.tgz#62cf120234c683785d902348a800ef3e0cc20bc0"
+  integrity sha1-Ys8SAjTGg3hdkCNIqADvPgzCC8A=
+
+eyespect@~0.1.8:
+  version "0.1.10"
+  resolved "http://arcatdmz2.synology.me:4873/eyespect/-/eyespect-0.1.10.tgz#99ae846a302fccaf790e3ecb44f47b5f3b176aa0"
+  integrity sha1-ma6EajAvzK95Dj7LRPR7XzsXaqA=
+
+forEachAsync@~2.2:
+  version "2.2.1"
+  resolved "http://arcatdmz2.synology.me:4873/forEachAsync/-/forEachAsync-2.2.1.tgz#e3723f00903910e1eb4b1db3ad51b5c64a319fec"
+  integrity sha1-43I/AJA5EOHrSx2zrVG1xkoxn+w=
+  dependencies:
+    sequence "2.x"
+
+graceful-fs@~1.1:
+  version "1.1.14"
+  resolved "http://arcatdmz2.synology.me:4873/graceful-fs/-/graceful-fs-1.1.14.tgz#07078db5f6377f6321fceaaedf497de124dc9465"
+  integrity sha1-BweNtfY3f2Mh/Oqu30l94STclGU=
 
 ms@^2.1.1:
   version "2.1.1"
@@ -24,6 +51,28 @@ node-ensure@^0.0.0:
   resolved "http://arcatdmz2.synology.me:4873/node-ensure/-/node-ensure-0.0.0.tgz#ecae764150de99861ec5c810fd5d096b183932a7"
   integrity sha1-7K52QVDemYYexcgQ/V0Jaxg5Mqc=
 
+os-tmpdir@^1.0.0:
+  version "1.0.2"
+  resolved "http://arcatdmz2.synology.me:4873/os-tmpdir/-/os-tmpdir-1.0.2.tgz#bbe67406c79aa85c5cfec766fe5734555dfa1274"
+  integrity sha1-u+Z0BseaqFxc/sdm/lc0VV36EnQ=
+
+pathhash@~1.0.0:
+  version "1.0.0"
+  resolved "http://arcatdmz2.synology.me:4873/pathhash/-/pathhash-1.0.0.tgz#f74e19c11b5724d2ce3906bf1bc967209ed8b727"
+  integrity sha1-904ZwRtXJNLOOQa/G8lnIJ7Ytyc=
+
+pdf-extract@^1.0.11:
+  version "1.0.11"
+  resolved "http://arcatdmz2.synology.me:4873/pdf-extract/-/pdf-extract-1.0.11.tgz#a7617a9a40ba87eba56913cee5b8dadfec2d4881"
+  integrity sha1-p2F6mkC6h+ulaRPO5bja3+wtSIE=
+  dependencies:
+    async "~0.1.22"
+    eyespect "~0.1.8"
+    pathhash "~1.0.0"
+    rimraf "~2.0.2"
+    temp "~0.8.3"
+    walk "~2.2.1"
+
 pdf-parse@^1.1.1:
   version "1.1.1"
   resolved "http://arcatdmz2.synology.me:4873/pdf-parse/-/pdf-parse-1.1.1.tgz#745e07408679548b3995ff896fd38e96e19d14a7"
@@ -31,3 +80,35 @@ pdf-parse@^1.1.1:
   dependencies:
     debug "^3.1.0"
     node-ensure "^0.0.0"
+
+rimraf@~2.0.2:
+  version "2.0.3"
+  resolved "http://arcatdmz2.synology.me:4873/rimraf/-/rimraf-2.0.3.tgz#f50a2965e7144e9afd998982f15df706730f56a9"
+  integrity sha1-9QopZecUTpr9mYmC8V33BnMPVqk=
+  optionalDependencies:
+    graceful-fs "~1.1"
+
+rimraf@~2.2.6:
+  version "2.2.8"
+  resolved "http://arcatdmz2.synology.me:4873/rimraf/-/rimraf-2.2.8.tgz#e439be2aaee327321952730f99a8929e4fc50582"
+  integrity sha1-5Dm+Kq7jJzIZUnMPmaiSnk/FBYI=
+
+sequence@2.x:
+  version "2.2.1"
+  resolved "http://arcatdmz2.synology.me:4873/sequence/-/sequence-2.2.1.tgz#7f5617895d44351c0a047e764467690490a16b03"
+  integrity sha1-f1YXiV1ENRwKBH52RGdpBJChawM=
+
+temp@~0.8.3:
+  version "0.8.3"
+  resolved "http://arcatdmz2.synology.me:4873/temp/-/temp-0.8.3.tgz#e0c6bc4d26b903124410e4fed81103014dfc1f59"
+  integrity sha1-4Ma8TSa5AxJEEOT+2BEDAU38H1k=
+  dependencies:
+    os-tmpdir "^1.0.0"
+    rimraf "~2.2.6"
+
+walk@~2.2.1:
+  version "2.2.1"
+  resolved "http://arcatdmz2.synology.me:4873/walk/-/walk-2.2.1.tgz#5ada1f8e49e47d4b7445d8be7a2e1e631ab43016"
+  integrity sha1-WtofjknkfUt0Rdi+ei4eYxq0MBY=
+  dependencies:
+    forEachAsync "~2.2"
