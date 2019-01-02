@@ -2,7 +2,14 @@
 # yarn lockfile v1
 
 
-"@types/node@^10.12.18":
+"@types/eyes@^0.1.31":
+  version "0.1.31"
+  resolved "http://arcatdmz2.synology.me:4873/@types%2feyes/-/eyes-0.1.31.tgz#a858c4fc784d0c42ee7d62fc5bc5d2a371b6f2b2"
+  integrity sha512-kKDgdUvHjcBVXyr3JW8xuvAbpL5e+2UKi7fru8s8OBvpZrxE0cx9uUKUBwk4dHvaA6zK03AiTKv0TDoKl21K+Q==
+  dependencies:
+    "@types/node" "*"
+
+"@types/node@*", "@types/node@^10.12.18":
   version "10.12.18"
   resolved "http://arcatdmz2.synology.me:4873/@types%2fnode/-/node-10.12.18.tgz#1d3ca764718915584fcd9f6344621b7672665c67"
   integrity sha512-fh+pAqt4xRzPfqA6eh3Z2y6fyZavRIumvjhaCL753+TVkGKGhpPeyrJG2JftD0T9q4GF00KjefsQ+PQNDdWQaQ==
@@ -11,13 +18,6 @@ async@~0.1.22:
   version "0.1.22"
   resolved "http://arcatdmz2.synology.me:4873/async/-/async-0.1.22.tgz#0fc1aaa088a0e3ef0ebe2d8831bab0dcf8845061"
   integrity sha1-D8GqoIig4+8Ovi2IMbqw3PiEUGE=
-
-debug@^3.1.0:
-  version "3.2.6"
-  resolved "http://arcatdmz2.synology.me:4873/debug/-/debug-3.2.6.tgz#e83d17de16d8a7efb7717edbe5fb10135eee629b"
-  integrity sha512-mel+jf7nrtEl5Pn1Qx46zARXKDpBbvzezse7p7LqINmdoIk8PYP5SySaxEmYv6TZ0JyEKA1hsCId6DIhgITtWQ==
-  dependencies:
-    ms "^2.1.1"
 
 eyes@^0.1.8:
   version "0.1.8"
@@ -41,16 +41,6 @@ graceful-fs@~1.1:
   resolved "http://arcatdmz2.synology.me:4873/graceful-fs/-/graceful-fs-1.1.14.tgz#07078db5f6377f6321fceaaedf497de124dc9465"
   integrity sha1-BweNtfY3f2Mh/Oqu30l94STclGU=
 
-ms@^2.1.1:
-  version "2.1.1"
-  resolved "http://arcatdmz2.synology.me:4873/ms/-/ms-2.1.1.tgz#30a5864eb3ebb0a66f2ebe6d727af06a09d86e0a"
-  integrity sha512-tgp+dl5cGk28utYktBsrFqA7HKgrhgPsg6Z/EfhWI4gl1Hwq8B/GmY/0oXZ6nF8hDVesS/FpnYaD/kOWhYQvyg==
-
-node-ensure@^0.0.0:
-  version "0.0.0"
-  resolved "http://arcatdmz2.synology.me:4873/node-ensure/-/node-ensure-0.0.0.tgz#ecae764150de99861ec5c810fd5d096b183932a7"
-  integrity sha1-7K52QVDemYYexcgQ/V0Jaxg5Mqc=
-
 os-tmpdir@^1.0.0:
   version "1.0.2"
   resolved "http://arcatdmz2.synology.me:4873/os-tmpdir/-/os-tmpdir-1.0.2.tgz#bbe67406c79aa85c5cfec766fe5734555dfa1274"
@@ -72,14 +62,6 @@ pdf-extract@^1.0.11:
     rimraf "~2.0.2"
     temp "~0.8.3"
     walk "~2.2.1"
-
-pdf-parse@^1.1.1:
-  version "1.1.1"
-  resolved "http://arcatdmz2.synology.me:4873/pdf-parse/-/pdf-parse-1.1.1.tgz#745e07408679548b3995ff896fd38e96e19d14a7"
-  integrity sha512-v6ZJ/efsBpGrGGknjtq9J/oC8tZWq0KWL5vQrk2GlzLEQPUDB1ex+13Rmidl1neNN358Jn9EHZw5y07FFtaC7A==
-  dependencies:
-    debug "^3.1.0"
-    node-ensure "^0.0.0"
 
 rimraf@~2.0.2:
   version "2.0.3"
