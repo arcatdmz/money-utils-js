@@ -41,16 +41,38 @@ function parsePDF(
   });
 }
 
-let localCurrencyPattern = /^([0-9]{2}\/[0-9]{2}\/[0-9]{2})\s+(.+)\s+([A-Z]+)\s+([0-9-.,]+)(\s+([0-9]{2}\/[0-9]{2}\/[0-9]{2}))?$/;
-// need to handle foreign currency pattern:
-//  '18/10/23 7‑ELEVEN                    JPY       636.00                        11.00 18/10/27',
-//  '                                     KRW     6,400.00                0.09',
+let localCurrencyPattern = /^([0-9]{2}\/[0-9]{2}\/[0-9]{2})\s+(.+)\s+([A-Z]+)\s+([0-9-‑.,]+)(\s+([0-9]{2}\/[0-9]{2}\/[0-9]{2}))?$/;
+let localCurrencyWithComissionPattern = /^([0-9]{2}\/[0-9]{2}\/[0-9]{2})\s+(.+)\s+([A-Z]+)\s+([0-9-‑.,]+)\s+([0-9-‑.,]+)(\s+([0-9]{2}\/[0-9]{2}\/[0-9]{2}))?$/;
+let exchangePattern = /^([0-9]{2}\/[0-9]{2}\/[0-9]{2})\s+(.+)\s+([A-Z]+)\s+(([0-9-‑.,]+)\s+){4}([0-9]{2}\/[0-9]{2}\/[0-9]{2})$/;
+
+let foreignCurrencyTailPattern = /^\s+[A-Z]+(\s+[0-9-‑.,]+)+$/;
+let systemPattern = /(会員氏名|カード番号|(\*\*\*\*‑){3}|PDF出力日|ソニー銀行|お取引|通貨|現地手数料|マイナス表記)/;
 
 parsePDF(argv[2], (err, pages) => {
   if (err) return console.error(err);
+  let errors: string[] = [];
   pages.forEach((page, i) => {
-    let lines = page.split(/[\015\n]+/g);
-    lines = lines.filter(line => localCurrencyPattern.test(line));
+    let lines = page.split(/[\x0D\n]+/g);
+    errors = errors.concat(
+      lines.filter(
+        line =>
+          !localCurrencyPattern.test(line) &&
+          !localCurrencyWithComissionPattern.test(line) &&
+          !exchangePattern.test(line) &&
+          !foreignCurrencyTailPattern.test(line) &&
+          !systemPattern.test(line)
+      )
+    );
+    lines = lines.filter(
+      line =>
+        localCurrencyPattern.test(line) ||
+        localCurrencyWithComissionPattern.test(line) ||
+        exchangePattern.test(line)
+    );
     inspect(lines, `extracted text page: ${i}`);
   });
+  errors = errors.filter(
+    error => error !== "\x0C" && !/^\s+.+\s+.+\s+様$/.test(error)
+  );
+  inspect(errors, `errors`);
 });
