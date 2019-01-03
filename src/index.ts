@@ -46,16 +46,17 @@ let localCurrencyWithComissionPattern = /^([0-9]{2}\/[0-9]{2}\/[0-9]{2})\s+(.+)\
 let exchangePattern = /^([0-9]{2}\/[0-9]{2}\/[0-9]{2})\s+(.+)\s+([A-Z]+)\s+(([0-9-‑.,]+)\s+){4}([0-9]{2}\/[0-9]{2}\/[0-9]{2})$/;
 
 let foreignCurrencyTailPattern = /^\s+[A-Z]+(\s+[0-9-‑.,]+)+$/;
-let systemPattern = /(会員氏名|カード番号|(\*\*\*\*‑){3}|PDF出力日|ソニー銀行|お取引|通貨|現地手数料|マイナス表記)/;
+let systemPattern = /(会員氏名|カード番号|(\*\*\*\*‑){3}|PDF出力日|ソニー銀行|お取引|通貨|現地手数料|マイナス表記|^\s+.+\s+.+\s+様$)/;
 
 parsePDF(argv[2], (err, pages) => {
   if (err) return console.error(err);
   let errors: string[] = [];
   pages.forEach((page, i) => {
-    let lines = page.split(/[\x0D\n]+/g);
+    let lines = page.split(/[\x0C\x0D\n]+/g);
     errors = errors.concat(
       lines.filter(
         line =>
+          line.length > 0 &&
           !localCurrencyPattern.test(line) &&
           !localCurrencyWithComissionPattern.test(line) &&
           !exchangePattern.test(line) &&
@@ -71,8 +72,5 @@ parsePDF(argv[2], (err, pages) => {
     );
     inspect(lines, `extracted text page: ${i}`);
   });
-  errors = errors.filter(
-    error => error !== "\x0C" && !/^\s+.+\s+.+\s+様$/.test(error)
-  );
   inspect(errors, `errors`);
 });
