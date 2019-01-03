@@ -2,6 +2,9 @@
 # Compilation results
 dist/
 
+# Processing results
+*.csv
+
 # Logs
 logs
 *.log
